@@ -17,7 +17,7 @@ using std::cout;
 using std::endl;
 using std::string;
 
-void extaraPolateZeroGrad(vector<vector<double>>& p, double IFb, string boundary) {
+void extraPolateZeroGrad(vector<vector<double>>& p, double IFb, string boundary) {
 
     if (boundary == "north")
     {
@@ -422,11 +422,11 @@ int main() {
 
 
 
-    extaraPolateZeroGrad(p, IFb, "north");
-    extaraPolateZeroGrad(p, IFb, "south");
+    extraPolateZeroGrad(p, IFb, "north");
+    extraPolateZeroGrad(p, IFb, "south");
 
-    extaraPolateZeroGrad(p, IFb, "east");
-    extaraPolateZeroGrad(p, IFb, "west");
+    extraPolateZeroGrad(p, IFb, "east");
+    extraPolateZeroGrad(p, IFb, "west");
 
     printMat(p, "pressure");
 

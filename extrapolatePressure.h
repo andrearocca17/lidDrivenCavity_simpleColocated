@@ -3,12 +3,12 @@
 #include<string>
 using std::vector;
 using std::string;
-void extaraPolateZeroGrad(vector<vector<double>>& p, double IFb, string boundary) {
+void extraPolateZeroGrad(vector<vector<double>>& p, double IFb, string boundary) {
     if (boundary == "north")
     {
         int j = p[1].size() - 1;
         for (int i = 1; i < p.size() - 1; i++) {
-            p[i][j] = p[i][j - 1] + IFb * (p[i][j - 1] - p[i][j - 2]);
+            p[i][j] = p[i][j - 1] + (1-IFb) * (p[i][j - 1] - p[i][j - 2]); // prima era IFb ma poi ho copiato da lidDrivenCaivity. Verificare
         }
     }
     if (boundary == "south")
@@ -33,3 +33,4 @@ void extaraPolateZeroGrad(vector<vector<double>>& p, double IFb, string boundary
         }
     }
 }
+
