@@ -10,12 +10,12 @@ void noWallShearY(double Nx, double Ny, double dx, double dy, double mu, double 
     double dy1 = y[0][1] - y[0][0];
     double dx2 = x[1][0] - x[0][0];
     double dy2 = dy;
-
+    //cout << dx1 << dx2 << dy1 << dy2 << endl;
     // east boundary. no wall shear in Y direction. Solo V
     for (int j = 1; j < Ny - 1; j++) {
-        APbv[1][j] += mu * dx2 / dy2;     // west boundary
-        APbv[Nx - 2][j] += mu * dx2 / dy2;     // east boundary
-        Bv[Nx - 2][j] += mu * dx1 / dy1 * V_wall;
-        Bv[1][j] += mu * dx1 / dy1 * V_wall;
+        APbv[1][j] += mu * dy2 / dx2;     // west boundary
+        APbv[Nx - 2][j] += mu * dy2 / dx2;     // east boundary
+        Bv[Nx - 2][j] += mu * dy2 / dx2 * V_wall;
+        Bv[1][j] += mu * dy2 / dx2 * V_wall;
     }
 }

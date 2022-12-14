@@ -20,15 +20,6 @@
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="resource.h">
-      <Filter>File di intestazione</Filter>
-    </ClInclude>
-    <ClInclude Include="Intestazione.h">
-      <Filter>File di origine</Filter>
-    </ClInclude>
-    <ClInclude Include="Intestazione1.h">
-      <Filter>File di origine</Filter>
-    </ClInclude>
     <ClInclude Include="printTools.h">
       <Filter>File di origine</Filter>
     </ClInclude>
@@ -36,9 +27,6 @@
       <Filter>File di origine</Filter>
     </ClInclude>
     <ClInclude Include="SIP.h">
-      <Filter>File di origine</Filter>
-    </ClInclude>
-    <ClInclude Include="solve.h">
       <Filter>File di origine</Filter>
     </ClInclude>
     <ClInclude Include="diffusion.h">
@@ -61,6 +49,9 @@
     </ClInclude>
     <ClInclude Include="relax.h">
       <Filter>File di intestazione</Filter>
+    </ClInclude>
+    <ClInclude Include="resource.h">
+      <Filter>File di origine</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
