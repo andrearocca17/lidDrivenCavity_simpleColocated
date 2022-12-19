@@ -135,6 +135,8 @@
     <ClInclude Include="convection.h" />
     <ClInclude Include="diffusion.h" />
     <ClInclude Include="extrapolatePressure.h" />
+    <ClInclude Include="Intestazione.h" />
+    <ClInclude Include="Intestazione1.h" />
     <ClInclude Include="noWallShearX.h" />
     <ClInclude Include="noWallShearY.h" />
     <ClInclude Include="pressureGradSource.h" />
@@ -142,6 +144,7 @@
     <ClInclude Include="relax.h" />
     <ClInclude Include="resource.h" />
     <ClInclude Include="SIP.h" />
+    <ClInclude Include="solve.h" />
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="LDCRocca.rc" />

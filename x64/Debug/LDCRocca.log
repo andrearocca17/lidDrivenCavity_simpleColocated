@@ -1,0 +1,16 @@
+﻿  LDCRocca.cpp
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\printTools.h(6,28): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\printTools.h(7,28): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\printTools.h(21,28): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\printTools.h(22,28): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\printTools.h(35,25): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\extrapolatePressure.h(9,32): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\extrapolatePressure.h(24,29): warning C4267: 'inizializzazione': conversione da 'size_t' a 'int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\SIP.h(70,9): warning C4267: 'inizializzazione': conversione da 'size_t' a 'unsigned int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\SIP.h(72,13): warning C4267: 'inizializzazione': conversione da 'size_t' a 'unsigned int'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\SIP.h(18,12): warning C4101: 'rURF': variabile locale senza riferimenti
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\noWallShearX.h(15,20): warning C4244: 'argomento': conversione da 'double' a 'const unsigned __int64'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\noWallShearX.h(17,18): warning C4244: 'argomento': conversione da 'double' a 'const unsigned __int64'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\noWallShearY.h(17,17): warning C4244: 'argomento': conversione da 'double' a 'const unsigned __int64'. Possibile perdita di dati.
+C:\Users\Utente\source\repos\LDCRocca\LDCRocca\noWallShearY.h(18,15): warning C4244: 'argomento': conversione da 'double' a 'const unsigned __int64'. Possibile perdita di dati.
+  LDCRocca.vcxproj -> C:\Users\Utente\source\repos\LDCRocca\x64\Debug\LDCRocca.exe

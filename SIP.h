@@ -64,7 +64,7 @@ vector<vector<double>>  SIP(vector<vector<double>>& phi, double alpha, vector<ve
         RSM = Residual / (RESOR + small);
 
 
-        cout << EqnName << " Inner It: " << L << " and Residual --> " << Residual << " RSM " << RSM << endl;
+        cout << EqnName << " Inner It: " << L+1 << " and Residual --> " << Residual << " RSM " << RSM << endl;
 
         // Back Subsitution and Correction
         for (unsigned int i = phi.size() - 2; i >= 1; --i)

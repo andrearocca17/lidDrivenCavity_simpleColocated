@@ -22,7 +22,7 @@ void  printMat(vector<vector<double>>& mat, string nameVar) {
     int col = mat[1].size();
     for (int i = 0; i < row; i++) {
         for (int j = 0; j < col; j++) {
-            cout << std::setprecision(3) << mat[i][j] << " ";
+            cout << mat[i][j] << " ";
 
         }
         cout << endl;
@@ -34,7 +34,7 @@ void  printVec(vector<double>& vec) {
 
     int row = vec.size();
     for (int i = 0; i < row; i++) {
-        cout << std::setprecision(3) << vec[i] << endl;
+        cout << vec[i] << endl;
     }
     cout << "---------------------------------------------------------------" << endl;
 }
