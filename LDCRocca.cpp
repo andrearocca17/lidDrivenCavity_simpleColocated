@@ -29,17 +29,12 @@ int main() {
     double L = 1.0; //lunghezza del lato della cavità
     double mu = 0.001;
     double density = 1.0;
-    double dt = 0.001;
-    int Nx = 7, Ny = 7; // numero di nodi interni su x e su y 
+    int Nx = 5, Ny = 5; // numero di nodi interni su x e su y 
     int nb = 2; //numero di boundaries
     int Nxb = Nx + 2;
     int Nyb = Ny + 2;
     double dx = L / Nx; //dimensione-x del volume di controllo
     double dy = L / Ny;
-    int Nb = (Nx + 2) * (Ny + 2); //numero di nodi totali
-    int N = Nx * Ny; //numero di incognite
-    int Nfx = Nx + 1;
-    int Nfy = Ny + 1;
     double IFi = 0.5; //interpolation factor interno
     double IFb = 1.0; //interpolation factor al bordo
 
@@ -96,7 +91,7 @@ int main() {
             //  y[n] = dy / 2 + j * dy;
         }
     }
-    for (int outerIt = 1; outerIt < 15; outerIt++) {
+    for (int outerIt = 0; outerIt < 1; outerIt++) {
         cout << "ITERATION NUMBER " << outerIt << endl;
         cout << endl;
 
@@ -132,6 +127,7 @@ int main() {
         extrapolateZeroGrad(p, IFb, "south");
         extrapolateZeroGrad(p, IFb, "east");
         extrapolateZeroGrad(p, IFb, "west");
+        printMat(p, "p");
         pressureGradSource(IFi, p, Bu, Bv, dx, dy);
         diffusion(mu, dy, dx, AEu, AWu, ANu, ASu, x, y);    //diffusion U
         convection(IFi, AEu, AWu, ANu, ASu, Fe, Fn, U, Bu);
@@ -140,13 +136,14 @@ int main() {
         double U_wall = 0.0;
         double V_wall = 0.0;
 
-        noWallShearX(Nx, Ny, dx, dy, mu, U_north, U_wall, x, y, APbu, Bu);
-
-
-        //boundayy conditions 
-
-
+        noWallShearX(Nxb, Nyb, dx, dy, mu, U_north, U_wall, x, y, APbu, Bu);
         assembleMatrixUV(APu, APbu, AEu, AWu, ASu, ANu);
+        printMat(APu, "APu");
+        printMat(AEu, "AEu");
+        printMat(ANu, "ANu");
+        printMat(AWu, "AWu");
+        printMat(ASu, "ASu");
+
         double URF = 0.8;
 
         relaxEq(URF, APu, BuRelaxed, Bu, rAPu, U);
@@ -156,11 +153,11 @@ int main() {
         //U=SIP(U, 0.92, AS, AN, AW, AE, AP, Brelaxed, iterations);
         int iteration = 1;
         UU = SIP(U, 0.92, ASu, ANu, AWu, AEu, APu, BuRelaxed, iteration, "U-Momentum");
-
+        printMat(UU, "UU");
 
         diffusion(mu, dy, dx, AEv, AWv, ANv, ASv, x, y);    //diffusion U
         convection(IFi, AEv, AWv, ANv, ASv, Fe, Fn, V, Bv);
-        noWallShearY(Nx, Ny, dx, dy, mu, V_wall, x, y, APbv, Bv);
+        noWallShearY(Nxb, Nyb, dx, dy, mu, V_wall, x, y, APbv, Bv);
 
         //boundayy conditions 
         assembleMatrixUV(APv, APbv, AEv, AWv, ASv, ANv);
@@ -168,6 +165,7 @@ int main() {
 
         //  printMat(VV, "VV");
         VV = SIP(V, 0.92, ASv, ANv, AWv, AEv, APv, BvRelaxed, iteration, "V-Momentum");
+        printMat(VV, "VV");
 
         double linearTerm;
         double c1;
@@ -213,11 +211,15 @@ int main() {
             sum += Bp[i][j];
         }
         cout << "SUM" << sum << endl;
-
-        iteration = 7;
-        pp = SIP(p, 0.9, ASp, ANp, AWp, AEp, APp, Bp, iteration, "Pressure-correction");
-        //   printMat(pp, "pp");
-
+        printMat(APp);
+        iteration = 6;
+        pp = SIP(p, 0.92, ASp, ANp, AWp, AEp, APp, Bp, iteration, "Pressure-correction");
+        printMat(pp, "pp");
+        extrapolateZeroGrad(pp, IFb, "north");
+        extrapolateZeroGrad(pp, IFb, "south");
+        extrapolateZeroGrad(pp, IFb, "east");
+        extrapolateZeroGrad(pp, IFb, "west");
+        printMat(pp, "pp-extrapolate");
 
         double URFp = 0.2;
         //correct p
@@ -226,10 +228,7 @@ int main() {
             p[i][j] = p[i][j] + URFp * pp[i][j];
         }
 
-        extrapolateZeroGrad(pp, IFb, "north");
-        extrapolateZeroGrad(pp, IFb, "south");
-        extrapolateZeroGrad(pp, IFb, "east");
-        extrapolateZeroGrad(pp, IFb, "west");
+
         //correct u e v
 
         forAllInternal(U) {
@@ -259,6 +258,10 @@ int main() {
             Fn[i][j] = density * dy * Vn[i][j];
             //Fs[i][j] = Fn[i][j - 1];
         }
+
+        printMat(U, "Unew");
+        printMat(V, "Vnew");
+        
 
     }
     return 0;

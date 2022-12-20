@@ -13,8 +13,8 @@ void noWallShearX(double Nx, double Ny, double dx, double dy, double mu, double 
     // North boundary. no wall shear in X direction. Solo U
     for (int i = 1; i < Nx - 1; i++) {
         APbu[i][Ny - 2] += mu * dx1 / dy1;     // north boundary
-        APbu[i][1] += mu * dx1 / dy1;     // South boundary
-        Bu[i][Ny - 2] += mu * dx1 / dy1 * U_north;
-        Bu[i][1] += mu * dx1 / dy1 * U_wall;
+        APbu[i][1]      += mu * dx1 / dy1;     // South boundary
+        Bu[i][Ny - 2]   += mu * dx1 / dy1 * U_north;
+        Bu[i][1]        += mu * dx1 / dy1 * U_wall;
     }
 }
