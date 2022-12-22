@@ -35,7 +35,18 @@ void  printVec(vector<double>& vec) {
 
     int row = vec.size();
     for (int i = 0; i < row; i++) {
-        cout << std::setprecision(3)<< vec[i] << endl;
+        cout << std::setprecision(3)<< vec[i] << " ";
     }
+    cout << endl;
+    cout << "---------------------------------------------------------------" << endl;
+}
+
+void  printVec(vector<double>& vec, string nameVar) {
+    cout << "------------------------" << nameVar << "------------------------" << endl;
+    int row = vec.size();
+    for (int i = 0; i < row; i++) {
+        cout << std::setprecision(3) << vec[i] << " ";
+    }
+    cout << endl;
     cout << "---------------------------------------------------------------" << endl;
 }
